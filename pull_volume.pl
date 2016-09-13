@@ -6,8 +6,7 @@ use Mail::Sender;
 
 my ($line,@array);
 
-@array=`mysql -usproot -psocialpatrol -e 'SELECT SUM(action_count) FROM  processor_action_log WHERE action_code = "SAVE_ENTRIES" 
-AND action_time > DATE_SUB(NOW(), INTERVAL 20 MINUTE);' -hicuc-prod-log.czrsywfk6vbk.us-west-2.rds.amazonaws.com -Dsocial_patrol_logs`;
+@array=`mysql -usproot -psocialpatrol -e 'SELECT SUM(action_count) FROM  processor_action_log WHERE action_code = "SAVE_ENTRIES" AND action_time > DATE_SUB(NOW(), INTERVAL 20 MINUTE);' -hicuc-prod-log.czrsywfk6vbk.us-west-2.rds.amazonaws.com -Dsocial_patrol_logs`;
 
         foreach $line (@array)
                 {
